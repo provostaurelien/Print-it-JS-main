@@ -20,15 +20,26 @@ const slides = [
 // Définition des contantes
 
 let i=0
-let flechedroite = document.querySelector("#banner .arrow_right")
-let flechegauche = document.querySelector("#banner .arrow_left")
+let flechedroite = document.querySelector("#banner .arrow_right");
+let flechegauche = document.querySelector("#banner .arrow_left");
 const dots = document.querySelectorAll(".dot");
+const img = document.querySelector("#banner .banner-img");
+const texte = document.querySelector("#banner p");
+console.log(texte)
 
 function updateSlide(i) {
 	//Gestion des dots foreach indiqué par ia
 	dots.forEach(dot => dot.classList.remove("dot_selected"));
 	
 	dots[i].classList.add("dot_selected");
+
+	// Changement des images
+
+	img.src = "./assets/images/slideshow/"+slides[i].image
+
+// Changement de paragraphe
+
+	texte.innerHTML = slides[i].tagLine
 }
 
 updateSlide(i);
