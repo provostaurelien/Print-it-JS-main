@@ -22,9 +22,16 @@ const slides = [
 let i=0
 let flechedroite = document.querySelector("#banner .arrow_right")
 let flechegauche = document.querySelector("#banner .arrow_left")
+const dots = document.querySelectorAll(".dot");
 
+function updateSlide(i) {
+	//Gestion des dots foreach indiqué par ia
+	dots.forEach(dot => dot.classList.remove("dot_selected"));
+	
+	dots[i].classList.add("dot_selected");
+}
 
-
+updateSlide(i);
 // Gestion des flèches du caroussel 
 
 
