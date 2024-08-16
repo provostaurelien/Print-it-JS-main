@@ -42,6 +42,7 @@ flechedroite.addEventListener("click", function() {
 		i= 0
 	}
 	console.log(i)
+	updateSlide(i)
 })
 
 flechegauche.addEventListener("click", function() {
@@ -50,6 +51,7 @@ flechegauche.addEventListener("click", function() {
 		i= slides.length -1
 	}
 	console.log(i)
+	updateSlide(i)
 })
 
 
