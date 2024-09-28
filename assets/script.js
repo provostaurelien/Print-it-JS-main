@@ -26,9 +26,32 @@ let flechegauche = document.querySelector("#banner .arrow_left");
 const dots = document.querySelectorAll(".dot");
 const img = document.querySelector("#banner .banner-img");
 const texte = document.querySelector("#banner p");
+const dotsContainer = document.querySelector(".dots");
 console.log(texte);
 
+function generateDots() {
+  // Vider le container des dots
+  dotsContainer.innerHTML = "";
+
+  // Ajouter autant de dots que de slides
+  slides.forEach((slide, index) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    
+    // Ajout d'un écouteur d'événement pour chaque dot (clic pour changer de slide)
+    dot.addEventListener("click", () => {
+      i = index;
+      updateSlide(i);
+    });
+
+    // Ajouter la dot au container
+    dotsContainer.appendChild(dot);
+  });
+}
+
 function updateSlide(i) {
+  // Ajout de la constante dots dans la fonction car créer par fonction précédente
+  const dots = document.querySelectorAll(".dot");
   //Gestion des dots foreach indiqué par ia
   dots.forEach((dot) => dot.classList.remove("dot_selected"));
 
@@ -42,8 +65,10 @@ function updateSlide(i) {
 
   texte.innerHTML = slides[i].tagLine;
 }
-
+// Initialisation des constantes
+generateDots();
 updateSlide(i);
+
 // Gestion des flèches du caroussel
 
 flechedroite.addEventListener("click", function () {
@@ -63,3 +88,7 @@ flechegauche.addEventListener("click", function () {
   console.log(i);
   updateSlide(i);
 });
+
+
+/// Ajout dynamique des dots selon le nombre d'éléments dans le tableau html, à remonter selon fonction mise à jour dots.
+
