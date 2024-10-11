@@ -29,6 +29,8 @@ const texte = document.querySelector("#banner p");
 const dotsContainer = document.querySelector(".dots");
 console.log(texte);
 
+
+// Ajout dynamique des dots selon le nombre d'éléments dans le tableau des slides
 function generateDots() {
   // Vider le container des dots
   dotsContainer.innerHTML = "";
@@ -90,5 +92,5 @@ flechegauche.addEventListener("click", function () {
 });
 
 
-/// Ajout dynamique des dots selon le nombre d'éléments dans le tableau html, à remonter selon fonction mise à jour dots.
+
 
